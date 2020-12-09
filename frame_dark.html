@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://dartpad.dev/scripts/frame_dark.html#/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+    <style>
+        body {
+            font-size: 12pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, label {
+            color: #FFFFFF;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        replaceJavaScript = function (value) {
+            // Remove the old node.
+            var oldNode = document.getElementById('compiledJsScript');
+            if (oldNode && oldNode.parentNode) {
+                oldNode.parentNode.removeChild(oldNode);
+            }
+
+            // Create a new node.
+            var scriptNode = document.createElement('script');
+            scriptNode.setAttribute('id', 'compiledJsScript');
+            scriptNode.text = value;
+            document.head.appendChild(scriptNode);
+        };
+
+        messageHandler = function (e) {
+            var obj = e.data;
+            var command = obj.command;
+            var body = document.body;
+
+            if (command === 'setCss') {
+                document.getElementById('styleId').innerHTML = obj.css;
+            } else if (command === 'setHtml') {
+                body.innerHTML = obj.html;
+            } else if (command === 'execute') {
+                // Replace all three.
+                body.innerHTML = obj.html;
+                document.getElementById('styleId').innerHTML = obj.css;
+                replaceJavaScript(obj.js);
+            }
+        };
+
+        window.addEventListener('load', function () {
+            window.addEventListener('message', messageHandler, false);
+            parent.postMessage({'sender': 'frame', 'type': 'ready'}, '*');
+        });
+    </script>
+    <style id="styleId"></style>
+    <script src="./require.js"></script>
+    
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="dart_sdk" src="./dart_sdk.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="flutter_web" src="./flutter_web.js"></script><style></style><meta id="flutterweb-theme" name="theme-color" content="#212121"><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><style></style><script id="compiledJsScript">var testKey = '__TESTRESULT__ ';
+
+function dartPrint(message) {
+  if (message.startsWith(testKey)) {
+    var resultMsg = JSON.parse(message.substring(testKey.length));
+    resultMsg.sender = 'frame';
+    resultMsg.type = 'testResult';
+    parent.postMessage(resultMsg, '*');
+  } else {
+    parent.postMessage(
+      {'sender': 'frame', 'type': 'stdout', 'message': message.toString()}, '*');
+  }
+}
+// Unload previous version.
+require.undef('dartpad_main');
+
+var _thrownDartMainRunner = false;
+
+window.onerror = function(message, url, lineNumber, colno, error) {
+  if (!_thrownDartMainRunner) {
+    var errorMessage = '';
+    if (error != null) {
+      errorMessage = 'Error: ' + error;
+    } 
+    parent.postMessage(
+      {'sender': 'frame', 'type': 'stderr', 'message': message + errorMessage}, '*');
+  }
+  _thrownDartMainRunner = false;
+};
+
+require.config({
+  "baseUrl": "https://storage.googleapis.com/compilation_artifacts/2.11.0-213.1.beta/",
+  "waitSeconds": 60
+});
+
+define('dartpad_main', ['dart_sdk', 'flutter_web'], (function load__dartpad_main(dart_sdk, flutter_web) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const app = flutter_web.src__material__app;
+  const theme_data = flutter_web.src__material__theme_data;
+  const scaffold = flutter_web.src__material__scaffold;
+  const container = flutter_web.src__widgets__container;
+  const basic = flutter_web.src__widgets__basic;
+  const image = flutter_web.src__widgets__image;
+  const box_fit = flutter_web.src__painting__box_fit;
+  const text = flutter_web.src__widgets__text;
+  const text_style = flutter_web.src__painting__text_style;
+  const colors = flutter_web.src__material__colors;
+  const framework = flutter_web.src__widgets__framework;
+  const binding = flutter_web.src__widgets__binding;
+  var bootstrap = Object.create(dart.library);
+  var main = Object.create(dart.library);
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  const CT = Object.create(null);
+  var L0 = "file:///tmp/dartpadEETYCK/main.dart";
+  bootstrap.main = function main$() {
+    return async.async(dart.void, function* main$() {
+      yield ui.webOnlyInitializePlatform();
+      main.main();
+    });
+  };
+  main.MyApp = class MyApp extends framework.StatelessWidget {
+    build(context) {
+      return new app.MaterialApp.new({theme: theme_data.ThemeData.dark().copyWith({scaffoldBackgroundColor: main.darkBlue}), debugShowCheckedModeBanner: false, home: new scaffold.Scaffold.new({body: new container.Container.new({child: new basic.Stack.new({children: JSArrayOfWidgetL().of([new container.Container.new(), new image.Image.network("https://goodwordnews.com/wp-content/uploads/2020/11/Faber-Team-1-1.jpeg", {height: 250.0, width: 1 / 0, fit: box_fit.BoxFit.cover}), new text.Text.new("hellodevelopers we have many question we have faced in assignement,that is te way we try ", {style: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 15.0})})])})})})});
+    }
+  };
+  (main.MyApp.new = function() {
+    main.MyApp.__proto__.new.call(this);
+    ;
+  }).prototype = main.MyApp.prototype;
+  dart.addTypeTests(main.MyApp);
+  dart.addTypeCaches(main.MyApp);
+  dart.setMethodSignature(main.MyApp, () => ({
+    __proto__: dart.getMethods(main.MyApp.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(main.MyApp, L0);
+  main.main = function main$0() {
+    binding.runApp(new main.MyApp.new());
+  };
+  dart.defineLazy(main, {
+    /*main.darkBlue*/get darkBlue() {
+      return new ui.Color.fromARGB(255, 18, 32, 47);
+    }
+  }, true);
+  dart.trackLibraries("dartpad_main", {
+    "file:///tmp/dartpadEETYCK/bootstrap.dart": bootstrap,
+    "file:///tmp/dartpadEETYCK/main.dart": main
+  }, {
+  }, null);
+  // Exports:
+  return {
+    tmp__dartpadEETYCK__bootstrap: bootstrap,
+    tmp__dartpadEETYCK__main: main
+  };
+}));
+
+//# sourceMappingURL=main.dart.js.map
+
+require(['dart_sdk'],
+  function(sdk) {
+    'use strict';
+    sdk.developer._extensions.clear();
+    sdk.dart.hotRestart();
+});
+
+require(["dartpad_main", "dart_sdk"], function(dartpad_main, dart_sdk) {
+    // SDK initialization.
+    dart_sdk.dart.setStartAsyncSynchronously(true);
+    dart_sdk._isolate_helper.startRootIsolate(() => {}, []);
+
+    // Loads the `dartpad_main` module and runs its bootstrapped main method.
+    //
+    // DDK provides the user's code in a RequireJS module, which exports an
+    // object that looks something like this:
+    //
+    // {
+    //       [random_tokens]__bootstrap: bootstrap,
+    //       [random_tokens]__main: main
+    // }
+    //
+    // The first of those properties holds the compiled code for the bootstrap
+    // Dart file, which the server uses to wrap the user's code and wait on a
+    // call to dart:ui's `webOnlyInitializePlatform` before executing any of it.
+    //
+    // The loop below iterates over the properties of the exported object,
+    // looking for one that ends in "__bootstrap". Once found, it executes the
+    // bootstrapped main method, which calls the user's main method, which
+    // (presumably) calls runApp and starts Flutter's rendering. 
+
+    for (var prop in dartpad_main) {
+          if (prop.endsWith("__bootstrap")) {
+            dartpad_main[prop].main();
+          }
+    }});</script><style></style><meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
+<body spellcheck="false" style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none; font: 14px sans-serif; color: red;"><flt-glass-pane style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; cursor: default;"><flt-scene-host aria-hidden="true" style="pointer-events: none;"><flt-scene flt-layer-state="updated" style="position: absolute;"><flt-transform flt-layer-state="updated" style="position: absolute; transform-origin: 0px 0px 0px; transform: none;"><flt-offset flt-layer-state="updated" style="position: absolute; transform-origin: 0px 0px 0px; transform: translate(0px, 0px);"><flt-offset flt-layer-state="updated" style="position: absolute; transform-origin: 0px 0px 0px; transform: translate(0px, 0px);"><flt-clip flt-layer-state="updated" clip-type="physical-shape" style="position: absolute; overflow: hidden; z-index: 0; background-color: rgb(18, 32, 47); box-shadow: none; left: 0px; top: 0px; width: 673px; height: 425px;"><flt-clip-interior style="position: absolute; left: 0px; top: 0px;"><flt-picture flt-layer-state="updated" style="position: absolute; transform: translate(0px, 0px);"><flt-canvas style="position: absolute; transform: translate(-1px, -1px);"><div style="position: absolute; overflow: hidden; width: 673px; height: 250px; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 1, 1);"><div style="position: absolute; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, -1, -1);"><img src="./Faber-Team-1-1.jpeg" decoding="async" style="position: absolute; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 1, -97.9342); left: 0px; top: 0px; width: 673px; height: 447.87px;"></div></div><p style="font-size: 15px; font-weight: normal; font-family: Roboto, Arial, sans-serif; color: rgb(0, 0, 0); position: absolute; white-space: pre-wrap; overflow-wrap: break-word; overflow: hidden; height: 17px; width: 613px; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 1, 1); left: 0px; top: 0px;">hellodevelopers we have many question we have faced in assignement,that is te way we try </p></flt-canvas></flt-picture></flt-clip-interior></flt-clip></flt-offset></flt-offset></flt-transform></flt-scene></flt-scene-host></flt-glass-pane><flt-ruler-host style="position: fixed; visibility: hidden; overflow: hidden; top: 0px; left: 0px; width: 0px; height: 0px;"><div data-ruler="single-line" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 14px; font-family: sans-serif; white-space: pre;"></p></div><div data-ruler="min-intrinsic" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 14px; font-family: sans-serif; flex: 0 1 0%; display: inline; white-space: pre-line;"></p></div><div data-ruler="constrained" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 14px; font-family: sans-serif; display: block; overflow-wrap: break-word;"></p></div><div data-ruler="line-height" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 14px; font-family: sans-serif; white-space: pre;"> </p><div></div></div><div data-ruler="single-line" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 15px; font-family: Roboto, Arial, sans-serif; font-weight: normal; white-space: pre;"></p></div><div data-ruler="min-intrinsic" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 15px; font-family: Roboto, Arial, sans-serif; font-weight: normal; flex: 0 1 0%; display: inline; white-space: pre-line;"></p></div><div data-ruler="constrained" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 15px; font-family: Roboto, Arial, sans-serif; font-weight: normal; display: block; overflow-wrap: break-word;"></p></div><div data-ruler="line-height" style="visibility: hidden; position: absolute; top: 0px; left: 0px; display: flex; flex-direction: row; align-items: baseline; margin: 0px; border: 0px; padding: 0px;"><p style="font-size: 15px; font-family: Roboto, Arial, sans-serif; font-weight: normal; white-space: pre;"> </p><div></div></div></flt-ruler-host></body></html>
